@@ -1,0 +1,24 @@
+Triangle Similarity
+
+Let’s say we have a marker or object with a known width W. We then place this marker some distance D from our camera. 
+We take a picture of our object using our camera and then measure the apparent width in pixels P. 
+This allows us to derive the perceived focal length F of our camera:
+
+F = (P x D) / W
+
+# focal length finder function
+def FocalLength(measured_distance, real_width, width_in_rf_image):
+    focal_length = (width_in_rf_image* measured_distance)/ real_width
+    return focal_length
+
+# distance estimation function
+def Distance_finder(Focal_Length, real_face_width, face_width_in_frame):
+    distance = (real_face_width * Focal_Length)/face_width_in_frame
+    return distance
+
+
+Is it actually linear?? Nope
+
+So used polyfit to approximate the relationship inbetween camera 
+
+What about the shearing of the image?
